@@ -23,7 +23,9 @@ if exist "%UserProfile%\Videos\ffplay.exe" (
 )
 
 timeout /t 2 /nobreak >nul
-start /B "" "C:\Program Files (x86)\Steam\Steam.exe" -noverifyfiles -gamepadui &
+pushd "C:\Program Files (x86)\Steam"
+start /B "" "C:\Program Files (x86)\Steam\DLLInjector.exe" &
+popd
 
 :check_ffplay
 tasklist /FI "IMAGENAME eq ffplay.exe" 2>NUL | find /I /N "ffplay.exe" >NUL
